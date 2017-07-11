@@ -293,29 +293,6 @@ static WCRGeneralCommander *sharedCommander;
 	}
 }
 
-- (void)promptDoNotDisturb
-{
-	@autoreleasepool
-	{
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"正在工作" message:@"请勿触碰" delegate:self cancelButtonTitle:@"好的，我保证不碰☺️" otherButtonTitles:nil];
-		[alertView show];
-#if !__has_feature(objc_arc)		
-		[alertView release];
-#endif
-		alertView = nil;
-	}
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-		[WCRPreferences initSettings];
-	});
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-		[self promptDoNotDisturb];
-	});
-}
-
 - (void)clearAllSessions
 {
 	@autoreleasepool

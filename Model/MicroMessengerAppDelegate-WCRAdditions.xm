@@ -12,8 +12,6 @@ WeixinContentLogicController *logicController;
 	@autoreleasepool
 	{
 		WCRGroupCommander *groupCommander = [WCRGroupCommander sharedCommander];
-
-		[groupCommander promptDoNotDisturb];
 		[self turnOnVoiceTrans];
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 			[groupCommander scheduleNotifications];
