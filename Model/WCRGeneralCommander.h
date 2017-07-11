@@ -18,8 +18,6 @@ typedef void (^QRCodeDownloadCallback)(NSString *path);
 - (void)scheduleNotifications;
 - (void)handleNotification:(UILocalNotification *)notification;
 - (void)clearAllSessions;
-- (void)promptDoNotDisturb;
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 - (void)saveDailyPromotionIndex;
 - (void)saveConversation;
 - (void)downloadQRCodeOfUser:(NSString *)userID withCompletion:(QRCodeDownloadCallback)completion;
