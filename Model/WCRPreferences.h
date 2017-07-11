@@ -12,7 +12,6 @@
 + (NSString *)chatHistoryPath;
 
 // Info
-+ (NSDictionary *)tulingURLs;
 + (NSMutableDictionary *)qrCodePathInfo;
 + (NSDictionary *)exampleWrapInfo;
 + (NSDictionary *)welcomeMessageInfo;

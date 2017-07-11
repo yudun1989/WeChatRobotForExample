@@ -52,8 +52,7 @@ static WebViewA8KeyLogicImpl *sharedGlobalKeyPoint(void)
 
 		NSMutableString *tulingInfoString = [content mutableCopy];
 		[tulingInfoString replaceOccurrencesOfString:[NSString stringWithFormat:@"@%@", [userCommander myName]] withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, tulingInfoString.length)];
-		NSString *tulingURLString = [WCRPreferences tulingURLs][[userCommander myID]];
-		if (!tulingURLString) tulingURLString = [WCRPreferences tulingURLs][@"miscellaneous"];
+		NSString *tulingURLString = @"http://www.tuling123.com/openapi/api?key=574c557d53a58e937cfd68a22a71ea1a&info=";
 		tulingURLString = [tulingURLString stringByAppendingString:tulingInfoString];
 #if !__has_feature(objc_arc)
 		[tulingInfoString release];

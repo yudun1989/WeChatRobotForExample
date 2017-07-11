@@ -9,7 +9,6 @@ static NSDictionary *forwardKeywords;
 static NSMutableArray *promotionLinks;
 static NSDictionary *miscellaneous;
 static NSArray *names;
-static NSDictionary *tulingURLs;
 static NSDictionary *exampleWrapInfo;
 static NSDictionary *welcomeMessageInfo;
 static NSArray *admins;
@@ -31,7 +30,7 @@ static NSDictionary *robots;
 			[fileManager createDirectoryAtPath:usersPath withIntermediateDirectories:YES attributes:nil error:&error];
 			if (error) NSLog(@"WCR: Failed to create %@, error = %@.", usersPath, error);
 		}
-		for (NSString *fileName in @[@"admins.plist", @"IFTKeywords.plist", @"forwardKeywords.plist", @"immuneGroups.plist", @"messageForwardees.plist", @"miscellaneous.plist", @"names.plist", @"replies.plist", @"robots.plist", @"teamExample.plist", @"exampleWrap.plist", @"welcomeMessageInfo.plist", @"tulingURLs.plist", @"promotionLinks.plist"]) [WCRUtils copyFile:[bundlePath stringByAppendingPathComponent:fileName] toPath:[settingsPath stringByAppendingPathComponent:fileName]];
+		for (NSString *fileName in @[@"admins.plist", @"IFTKeywords.plist", @"forwardKeywords.plist", @"immuneGroups.plist", @"messageForwardees.plist", @"miscellaneous.plist", @"names.plist", @"replies.plist", @"robots.plist", @"teamExample.plist", @"exampleWrap.plist", @"welcomeMessageInfo.plist", @"promotionLinks.plist"]) [WCRUtils copyFile:[bundlePath stringByAppendingPathComponent:fileName] toPath:[settingsPath stringByAppendingPathComponent:fileName]];
 		[self saveAllUsers];
 
 #if !__has_feature(objc_arc)			
@@ -44,7 +43,6 @@ static NSDictionary *robots;
 		[promotionLinks release];
 		[miscellaneous release];
 		[names release];
-		[tulingURLs release];
 		[exampleWrapInfo release];
 		[welcomeMessageInfo release];
 		[admins release];
@@ -59,7 +57,6 @@ static NSDictionary *robots;
 		promotionLinks = nil;
 		miscellaneous = nil;
 		names = nil;
-		tulingURLs = nil;
 		exampleWrapInfo = nil;
 		welcomeMessageInfo = nil;
 		admins = nil;
@@ -74,7 +71,6 @@ static NSDictionary *robots;
 		promotionLinks = [[NSMutableArray alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"promotionLinks.plist"]];
 		miscellaneous = [[NSDictionary alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"miscellaneous.plist"]];
 		names = [[NSArray alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"names.plist"]];
-		tulingURLs = [[NSDictionary alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"tulingURLs.plist"]];
 		exampleWrapInfo = [[NSDictionary alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"exampleWrap.plist"]];
 		welcomeMessageInfo = [[NSDictionary alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"welcomeMessageInfo.plist"]];
 		admins = [[NSArray alloc] initWithContentsOfFile:[settingsPath stringByAppendingPathComponent:@"admins.plist"]];
@@ -101,11 +97,6 @@ static NSDictionary *robots;
 + (NSString *)chatHistoryPath
 {
 	return [[self settingsPath] stringByAppendingPathComponent:@"chatHistory.db"];
-}
-
-+ (NSDictionary *)tulingURLs
-{
-	return tulingURLs;
 }
 
 + (NSMutableDictionary *)qrCodePathInfo
