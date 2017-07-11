@@ -148,7 +148,7 @@ extern WeixinContentLogicController *logicController;
 - (BOOL)setContact:(CContact *)arg1 remark:(NSString *)arg2 hideHashPhone:(BOOL)arg3;
 - (BOOL)deleteContact:(CContact *)arg1 listType:(NSUInteger)arg2; // arg2传3
 - (BOOL)isInContactList:(NSString *)userID;
-- (NSArray *)getContactList:(NSUInteger)arg1 contactType:(NSUInteger)arg2 domain:(id)arg3; // 1, 0, nil
+- (NSArray *)getContactList:(NSUInteger)arg1 contactType:(NSUInteger)arg2; // 1, 0, nil
 @end
 
 @interface MMServiceCenter : NSObject

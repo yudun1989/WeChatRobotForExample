@@ -47,7 +47,7 @@ static WCRGeneralCommander *sharedCommander;
 - (NSArray *)allContacts
 {
 	CContactMgr *manager = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CContactMgr") class]];
-	return [manager getContactList:1 contactType:0 domain:nil];
+	return [manager getContactList:1 contactType:0];
 }
 
 - (NSString *)nameOfUser:(NSString *)userID
@@ -149,13 +149,13 @@ static WCRGeneralCommander *sharedCommander;
 		[self.conversation writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
 		if (error) NSLog(@"WCR: Failed to save conversation locally, error = %@.", error);
 		{
-			KxSMBProvider *provider = [KxSMBProvider sharedSmbProvider];
-			KxSMBAuth *auth = [KxSMBAuth smbAuthWorkgroup:nil username:@"smb" password:[WCRUtils password]];
-			NSString *destinationPath = [WCRPreferences exampleConversation];
-			[provider copyLocalPath:filePath smbPath:destinationPath overwrite:YES auth:auth block:^(id result)
-			{
-				if ([result isKindOfClass:[NSError class]]) NSLog(@"WCR: Failed to copy %@ to %@, error = %@.", filePath, destinationPath, result);
-			}];
+			// KxSMBProvider *provider = [KxSMBProvider sharedSmbProvider];
+			// KxSMBAuth *auth = [KxSMBAuth smbAuthWorkgroup:nil username:@"smb" password:[WCRUtils password]];
+			// NSString *destinationPath = [WCRPreferences exampleConversation];
+			// [provider copyLocalPath:filePath smbPath:destinationPath overwrite:YES auth:auth block:^(id result)
+			// {
+			// 	if ([result isKindOfClass:[NSError class]]) NSLog(@"WCR: Failed to copy %@ to %@, error = %@.", filePath, destinationPath, result);
+			// }];
 		}
 	}	
 }

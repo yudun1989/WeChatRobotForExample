@@ -1,5 +1,4 @@
 #import "CMessageWrap-WCRAdditions.h"
-#import "KxSMBProvider.h"
 #import "MicroMessengerAppDelegate-WCRAdditions.h"
 #import "WCRDBManager.h"
 #import "WCRGeneralCommander.h"

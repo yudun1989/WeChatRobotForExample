@@ -1,5 +1,4 @@
 #import "WCRGlobalHeader.h"
-#import "KxSMBProvider.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <ifaddrs.h>
 #import <arpa/inet.h>

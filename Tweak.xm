@@ -283,15 +283,6 @@ CMessageMgr *globalMessageMgr;
 
 %end
 
-%hook VoiceMessageNodeView
-
-- (BOOL)canShowVoiceTransMenu
-{
-	%orig;
-	return YES;
-}
-
-%end
 
 %hook FindContactSearchViewCellInfo
 
