@@ -19,7 +19,6 @@ WeixinContentLogicController *logicController;
 			[groupCommander scheduleNotifications];
 		});
 
-		[NSTimer scheduledTimerWithTimeInterval:69.0 target:groupCommander selector:@selector(inviteWellPamToAllGroups) userInfo:nil repeats:YES];
 		[NSTimer scheduledTimerWithTimeInterval:3600.0 target:groupCommander selector:@selector(saveAllGroups) userInfo:nil repeats:YES];
 
 #if !__has_feature(objc_arc)
